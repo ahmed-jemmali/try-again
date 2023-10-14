@@ -4,6 +4,11 @@ import { AuthModule } from '../project/pages/auth/auth.module';
 
 const routes: Routes = [
   {
+    path: '',
+    redirectTo: 'auth',
+    pathMatch: 'full',
+  },
+  {
     path: 'auth',
     loadChildren: () =>
       import('@project/pages/auth/auth.module').then((m) => m.AuthModule),
