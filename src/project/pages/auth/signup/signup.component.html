@@ -1,6 +1,6 @@
-<section class="signup">
+<section class="signup" style="height: 100%">
   <div class="signup-container">
-    <form class="signup-content">
+    <form [formGroup]="signupForm" class="signup-content">
       <div class="title-content">
         <h3>SIGN UP</h3>
         <p>Already have an account? <span>Sign in</span></p>
@@ -8,30 +8,183 @@
       <div style="height: 65%">
         <div class="row">
           <div class="column">
-            <label for="">Username</label><input type="text" />
+            <label for="">Username</label
+            ><input formControlName="username" type="text" />
+            <div
+              *ngIf="
+                signupForm.controls['username'].invalid &&
+                (signupForm.controls['username'].dirty ||
+                  signupForm.controls['username'].touched)
+              "
+            >
+              <div
+                *ngIf="signupForm.controls['username'].errors?.['required']"
+                style="color: red"
+              >
+                This field is required
+              </div>
+              <div
+                *ngIf="signupForm.controls['username'].errors?.['pattern']"
+                style="color: red"
+              >
+                This field is invalid
+              </div>
+              <div
+                *ngIf="signupForm.controls['username'].errors?.['minLength']"
+                style="color: red"
+              >
+                This field must be at least 5 characters
+              </div>
+            </div>
           </div>
           <div class="column">
-            <label for="">First name</label><input type="text" />
+            <label for="">First name</label
+            ><input formControlName="firstName" type="text" />
+            <div
+              *ngIf="
+                signupForm.controls['firstName'].invalid &&
+                (signupForm.controls['firstName'].dirty ||
+                  signupForm.controls['firstName'].touched)
+              "
+            >
+              <div
+                *ngIf="signupForm.controls['firstName'].errors?.['required']"
+                style="color: red"
+              >
+                This field is required
+              </div>
+              <div
+                *ngIf="signupForm.controls['firstName'].errors?.['pattern']"
+                style="color: red"
+              >
+                This field is invalid
+              </div>
+            </div>
           </div>
         </div>
         <div class="row">
           <div class="column">
-            <label for="">Last name</label><input type="text" />
+            <label for="">Last name</label
+            ><input formControlName="lastName" type="text" />
+            <div
+              *ngIf="
+                signupForm.controls['lastName'].invalid &&
+                (signupForm.controls['lastName'].dirty ||
+                  signupForm.controls['lastName'].touched)
+              "
+            >
+              <div
+                *ngIf="signupForm.controls['lastName'].errors?.['required']"
+                style="color: red"
+              >
+                This field is required
+              </div>
+              <div
+                *ngIf="signupForm.controls['lastName'].errors?.['pattern']"
+                style="color: red"
+              >
+                This field is invalid
+              </div>
+            </div>
           </div>
           <div class="column">
-            <label for="">Email</label><input type="text" />
+            <label for="">Email</label
+            ><input formControlName="email" type="email" />
+            <div
+              *ngIf="
+                signupForm.controls['email'].invalid &&
+                (signupForm.controls['email'].dirty ||
+                  signupForm.controls['email'].touched)
+              "
+            >
+              <div
+                *ngIf="signupForm.controls['email'].errors?.['required']"
+                style="color: red"
+              >
+                This field is required
+              </div>
+              <div
+                *ngIf="signupForm.controls['email'].errors?.['email']"
+                style="color: red"
+              >
+                This field is invalid
+              </div>
+            </div>
           </div>
         </div>
         <div class="row">
           <div class="column">
-            <label for="">Password</label><input type="text" />
+            <label for="">Password</label
+            ><input
+              formControlName="password"
+              (keyup)="pwdValidation()"
+              type="password"
+            />
+            <div class="errors-cont" *ngIf="pwdErrors.length > 0">
+              <div
+                *ngFor="let error of pwdErrors"
+                style="margin-bottom: 5px; color: red"
+              >
+                {{ error }}
+              </div>
+            </div>
+            <!-- <div
+              *ngIf="
+                signupForm.controls['password'].invalid &&
+                (signupForm.controls['password'].dirty ||
+                  signupForm.controls['password'].touched)
+              "
+            >
+              <div
+                *ngIf="signupForm.controls['password'].errors?.['required']"
+                style="color: red"
+              >
+                This field is required
+              </div>
+              <div
+                *ngIf="signupForm.controls['password'].errors?.['pattern']"
+                style="color: red"
+              >
+                The password must have at least 6 characters, one uppercase
+                letter, one lowercase letter, one number, special characters
+              </div>
+            </div> -->
           </div>
           <div class="column">
-            <label for="">Confirm Password</label><input type="text" />
+            <label for="">Confirm Password</label
+            ><input formControlName="confirmPwd" type="password" />
+            <div
+              *ngIf="
+                signupForm.controls['confirmPwd'].invalid &&
+                (signupForm.controls['confirmPwd'].dirty ||
+                  signupForm.controls['confirmPwd'].touched)
+              "
+            >
+              <div
+                *ngIf="signupForm.controls['confirmPwd'].errors?.['required']"
+                style="color: red"
+              >
+                This field is required
+              </div>
+              <div
+                *ngIf="signupForm.controls['confirmPwd'].errors?.['mustMatch']"
+                style="color: red"
+              >
+                Please confirm didn't match!
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      <div style="height: 15%"><button type="button">Submit</button></div>
+      <div style="margin-top: 15px">
+        <button
+          (click)="signup(signupForm.value)"
+          [disabled]="!(signupForm.valid && signupForm.dirty)"
+          type="button"
+        >
+          Submit
+        </button>
+      </div>
     </form>
   </div>
 </section>
