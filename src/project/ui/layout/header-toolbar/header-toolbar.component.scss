@@ -1,0 +1,14 @@
+header {
+  background-color: var(--site-background-color);
+  color: white;
+}
+.nav {
+  display: flex;
+  justify-content: center;
+}
+.menu {
+  list-style: none;
+  li {
+    font-size: 15px;
+  }
+}

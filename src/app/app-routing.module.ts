@@ -13,6 +13,13 @@ const routes: Routes = [
     loadChildren: () =>
       import('@project/pages/auth/auth.module').then((m) => m.AuthModule),
   },
+  {
+    path: 'main',
+    loadChildren: () =>
+      import('@project/ui/layout/ui-layout.module').then(
+        (m) => m.UiLayoutModule
+      ),
+  },
 ];
 
 @NgModule({
