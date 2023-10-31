@@ -2,6 +2,10 @@
 
 :root {
   --site-background-color: #080c0f;
+  --fourthColor: #004c6854;
+  --componentColor: #0e151a;
+  --separatorColor: #1d2b35;
+  --scrollColor: #353e46;
 }
 *,
 ::after,
@@ -18,11 +22,11 @@ body {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background-color: var(--fourthColor);
 }
-::-webkit-scrollbar-thumb {
-  background: #888;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
+*::-webkit-scrollbar-thumb {
+  background-color: var(--scrollColor);
+  &:hover {
+    background-color: #555;
+  }
 }

@@ -1,6 +1,7 @@
 header {
   background-color: var(--site-background-color);
   color: white;
+  border-bottom: 1px solid var(--separatorColor);
 }
 .nav {
   display: flex;
