@@ -6,6 +6,16 @@ const routes: Routes = [
   {
     path: '',
     component: MainComponent,
+    children: [
+      { path: '', redirectTo: 'global', pathMatch: 'full' },
+      {
+        path: 'global',
+        loadChildren: () =>
+          import('@project/pages/global/global.module').then(
+            (m) => m.GlobalModule
+          ),
+      },
+    ],
   },
 ];
 

@@ -15,7 +15,8 @@ import { FooterComponent } from './footer/footer.component';
   ],
   imports: [
     CommonModule,
-    UiLayoutRoutingModule
-  ]
+    UiLayoutRoutingModule,
+    
+  ],
 })
 export class UiLayoutModule { }

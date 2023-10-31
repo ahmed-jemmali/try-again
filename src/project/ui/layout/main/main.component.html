@@ -1,3 +1,7 @@
-<app-header-toolbar></app-header-toolbar>
-<router-outlet></router-outlet>
-<app-footer></app-footer>
+<div class="main-layout">
+  <app-header-toolbar></app-header-toolbar>
+  <div class="main-layout-container">
+    <router-outlet></router-outlet>
+  </div>
+  <app-footer style="position: sticky; bottom: 0; z-index: 1000;"></app-footer>
+</div>
