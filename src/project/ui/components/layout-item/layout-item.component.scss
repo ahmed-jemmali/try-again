@@ -1,7 +1,55 @@
 .layout-item-container {
   height: 500px;
-  width: calc(50vw - 15px);
+  width: calc(33vw - 10px);
   border: 1px solid var(--fourthColor);
   background-color: var(--componentColor);
   margin-bottom: 10px;
+  position: relative;
+}
+
+.layout-item-card-title {
+  border-bottom: 1px solid var(--fourthColor);
+  height: 35px;
+  width: calc(100% - 20px);
+  margin: auto;
+  text-align: center;
+  line-height: 35px;
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.layout-item_footer {
+  display: flex;
+  height: 35px;
+  align-items: center;
+  color: white;
+  border-top: 1px solid var(--fourthColor);
+  position: absolute;
+  bottom: 0;
+  width: calc(100% - 30px);
+  left: 15px;
+  right: 15px;
+}
+
+.layout-item-content {
+  color: white;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.course-name {
+  color: var(--bitgetColor);
+  margin-bottom: 10px;
+}
+
+.course-info {
+  margin-right: 15px;
+  font-size: 15px;
+}
+
+.course-price {
+  color: var(--bitgetColor);
+  font-weight: 700;
+  margin-left: auto;
 }
